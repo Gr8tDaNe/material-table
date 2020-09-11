@@ -504,6 +504,7 @@ class App extends Component {
                   //   },
                   // }}
                   options={{
+                    renderDetailPanelColumn: true,
                     tableLayout: "fixed",
                     columnResizable: true,
                     headerSelectionProps: {
@@ -519,6 +520,16 @@ class App extends Component {
                       };
                     },
                   }}
+                  detailPanel={[
+                    {
+                      hidden: true,
+                      isFreeAction: true,
+                      render: (rowData) => {
+                        return <h1>Detail Panel!</h1>;
+                      },
+                    },
+                  ]}
+                  onRowClick={(event, rowData, togglePanel) => togglePanel()}
                   // editable={{
                   //   onBulkUpdate: (changedRows) =>
                   //     new Promise((resolve, reject) => {
